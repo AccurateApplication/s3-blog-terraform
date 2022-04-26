@@ -12,6 +12,12 @@ provider "aws" {
   region = var.default_region
 }
 
+# For ACM certificate
+provider "aws" {
+  alias  = "east-1"
+  region = "us-east-1"
+}
+
 module "terraform_state_backend" {
   source = "cloudposse/tfstate-backend/aws"
   # Cloud Posse recommends pinning every module to a specific version
